@@ -50,12 +50,8 @@ export const SeatService = {
   },
 };
 
-const axios_api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL,
-});
-
 
 export const vacateSeat = (allocationId: string) => {
-  return axios_api.delete(`/seats/vacate/${allocationId}`);
+  return api.delete(`/seats/vacate/${allocationId}`);
 };
 

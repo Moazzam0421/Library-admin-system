@@ -55,6 +55,6 @@ const axios_api = axios.create({
 });
 
 export const vacateSeat = (allocationId: string) => {
-  return axios_api.delete(`/api/seats/vacate/${allocationId}`);
+return api.delete(`/seats/vacate/${allocationId}`);
 };
 

@@ -4,11 +4,13 @@ const cors = require("cors");
 const app = express();
 
 /* Middlewares */
-app.use(cors({
-  origin: true,
-  methods: ["GET", "POST", "PATCH", "DELETE"],
-  credentials: true,
-}));
+app.use(
+cors({
+origin: process.env.CLIENT_URL,
+methods: ["GET", "POST", "PATCH", "DELETE"],
+credentials: true,
+})
+);
 
 app.use(express.json());
 

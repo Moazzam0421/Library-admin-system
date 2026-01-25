@@ -26,14 +26,14 @@ export interface SimpleStudent {
 
 export const SeatService = {
   async getByShift(shiftCode: string): Promise<SeatAllocation[]> {
-  try {
-    const res = await api.get("/seats", { params: { shiftCode } });
-    return res.data;
-  } catch (err: any) {
-    console.error(err?.response?.data?.message);
-    return [];
-  }
-},
+    try {
+      const res = await api.get("/seats", { params: { shiftCode } });
+      return res.data;
+    } catch (err: any) {
+      console.error(err?.response?.data?.message);
+      return [];
+    }
+  },
 
   async getUnassignedStudents(): Promise<SimpleStudent[]> {
     const res = await api.get("/seats/unassigned");
@@ -51,10 +51,11 @@ export const SeatService = {
 };
 
 const axios_api = axios.create({
-  baseURL: "http://localhost:5000",
+  baseURL: import.meta.env.VITE_API_URL,
 });
 
+
 export const vacateSeat = (allocationId: string) => {
-return api.delete(`/seats/vacate/${allocationId}`);
+  return axios_api.delete(`/seats/vacate/${allocationId}`);
 };
 

@@ -1,6 +1,7 @@
 # Library Admin System
 
-Private admin system for managing a library.
+A full-stack web application for managing library operations, including
+students, seats, shifts, authentication, and monthly payments.
 
 ## Features
 - Admin authentication
